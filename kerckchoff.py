@@ -84,15 +84,15 @@ dicñ = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
 #Cambiar aquí frecuencias y diccionarios
 
-A= A_english
-text= text1
-alpha= dic
+A= A_spanish
+text= text2
+alpha= dicñ
 
 
 
 
 def ceasar(text):
-    Ai = [[0 for x in range(1)] for y in range(int(len(A)))]
+    Ai = [[0 for x in range(1)] for y in range(int(26))]
     W = []
     prod = []
 
@@ -167,20 +167,9 @@ key = []
 for i in range(0,length):
     key.append(ceasar(strings[i]))
 
-result = []
 
-
-for i in range(0,limit,length):
-    for j in range(0,length):
-        result.append(alpha[alpha.index(text[i+j])+key[j]-(len(alpha)-1)])    
-for i in range(limit,len(text)):
-    result.append(alpha[alpha.index(text[i])+key[i-limit]-(len(alpha)-1)])
-
-final = ''.join(result)
-
-print(key)
 stri = ""
-for i in key:
+for i in key[::-1]:
     stri += alpha[i]
 
-print("Clave del reves: " + stri)
+print("Clave: " + stri)
